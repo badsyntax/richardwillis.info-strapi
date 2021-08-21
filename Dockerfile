@@ -22,10 +22,10 @@ RUN ls -l
 FROM base
 
 LABEL maintainer=willis.rh@gmail.com
-LABEL org.opencontainers.image.source=https://github.com/badsyntax/richardwillis.info
+LABEL org.opencontainers.image.source=https://github.com/badsyntax/richardwillis.info-strapi
 LABEL org.label-schema.name="strapi"
 LABEL org.label-schema.description="Strapi image for Richard Willis"
-LABEL org.label-schema.vcs-url="https://github.com/badsyntax/richardwillis.info"
+LABEL org.label-schema.vcs-url="https://github.com/badsyntax/richardwillis.info-strapi"
 LABEL org.label-schema.usage="README.md"
 LABEL org.label-schema.vendor="badsyntax"
 

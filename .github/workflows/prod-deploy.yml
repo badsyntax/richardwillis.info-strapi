@@ -3,8 +3,8 @@ on:
   workflow_dispatch:
   # Trigger the workflow on push to master
   push:
-    branches:
-      - master
+    # branches:
+    #   - master
 
 jobs:
   publish-docker-image:
