@@ -1,6 +1,5 @@
 name: Deploy
 on:
-  workflow_dispatch:
   # Trigger the workflow on push to master
   push:
     branches:
@@ -12,10 +11,13 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2.3.4
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
+
       - name: Cache Docker layers
         uses: actions/cache@v2
         with:
@@ -23,20 +25,22 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
-      - name: Login to GitHub Container Registry
+
+      - name: Login to Docker Registry
         uses: docker/login-action@v1
         with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.CR_PAT }}
+          registry: registry.docker-box.richardwillis.info
+          username: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
+          password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
+
       - name: Build and push docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./Dockerfile
           push: true
-          platforms: linux/arm64,linux/amd64
-          tags: ghcr.io/${{ github.repository }}:latest
+          platforms: linux/amd64
+          tags: registry.docker-box.richardwillis.info/${{ github.repository }}:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
@@ -49,7 +53,7 @@ jobs:
         run: |
           curl --fail -X POST "$DEPLOY_ENDPOINT" || exit 1
         env:
-          DEPLOY_ENDPOINT: '${{ secrets.DEPLOY_ENDPOINT }}'
+          DEPLOY_ENDPOINT: "${{ secrets.DEPLOY_ENDPOINT }}"
       # - name: Save deploy start time
       #   id: deploy_start
       #   run: |
@@ -94,7 +98,7 @@ jobs:
       #     commit=$(git rev-parse HEAD 2>/dev/null || true)
       #     echo ::set-output name=commit_sha::$commit
       #   env:
-      #     IMAGE_URL: ghcr.io/${{ github.repository }}:latest
+      #     IMAGE_URL: registry.docker-box.richardwillis.info/${{ github.repository }}:latest
       # - name: Push to dokku
       #   uses: dokku/github-action@master
       #   with:
