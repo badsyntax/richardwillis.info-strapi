@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-documentation/services/Documentation.js
@@ -10,9 +10,9 @@
  * the OpenAPI document
  */
 
-const _ = require("lodash");
-const pathToRegexp = require("path-to-regexp");
-const parametersOptions = require("strapi-plugin-documentation/services/utils/parametersOptions.json");
+const _ = require('lodash');
+const pathToRegexp = require('path-to-regexp');
+const parametersOptions = require('strapi-plugin-documentation/services/utils/parametersOptions.json');
 
 module.exports = {
   /**
@@ -29,21 +29,21 @@ module.exports = {
       .reduce((acc, current) => {
         const param = {
           name: current.name,
-          in: "path",
-          description: "",
+          in: 'path',
+          description: '',
           deprecated: false,
           required: true,
-          schema: { type: "string" },
+          schema: { type: 'string' },
         };
 
         return acc.concat(param);
       }, []);
 
-    if (verb === "get" && controllerMethod === "find") {
+    if (verb === 'get' && controllerMethod === 'find') {
       // parametersOptions corresponds to this section
       // of the documentation https://strapi.io/documentation/developer-docs/latest/developer-resources/content-api/content-api.html#filters
       const filteredParametersOptions = parametersOptions.filter((option) => {
-        return option.name !== "=";
+        return option.name !== '=';
       });
       return [...params, ...filteredParametersOptions];
     }
@@ -58,29 +58,29 @@ module.exports = {
    */
   getType: (type) => {
     switch (type) {
-      case "string":
-      case "byte":
-      case "binary":
-      case "password":
-      case "email":
-      case "text":
-      case "enumeration":
-      case "date":
-      case "datetime":
-      case "time":
-      case "richtext":
-      case "uid":
-        return "string";
-      case "float":
-      case "decimal":
-      case "double":
-        return "number";
-      case "integer":
-      case "biginteger":
-      case "long":
-        return "integer";
-      case "json":
-        return "object";
+      case 'string':
+      case 'byte':
+      case 'binary':
+      case 'password':
+      case 'email':
+      case 'text':
+      case 'enumeration':
+      case 'date':
+      case 'datetime':
+      case 'time':
+      case 'richtext':
+      case 'uid':
+        return 'string';
+      case 'float':
+      case 'decimal':
+      case 'double':
+        return 'number';
+      case 'integer':
+      case 'biginteger':
+      case 'long':
+        return 'integer';
+      case 'json':
+        return 'object';
       default:
         return type;
     }
@@ -91,7 +91,7 @@ module.exports = {
    * @param {String} type
    * @returns {String}
    */
-   getFormat: type => {
+  getFormat: type => {
     switch (type) {
       case 'uid':
         return 'uid';

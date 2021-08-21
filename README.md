@@ -26,16 +26,16 @@ npm start
 ## Build
 
 ```bash
-docker build -t ghcr.io/badsyntax/richardwillis-strapi:latest .
-docker run --publish 1337:1337 --volume $(pwd)/.env:/app/.env ghcr.io/badsyntax/richardwillis-strapi:latest
-docker push ghcr.io/badsyntax/richardwillis-strapi:latest
+docker build -t ghcr.io/badsyntax/richardwillis.info-strapi:latest .
+docker run --publish 1337:1337 --volume $(pwd)/.env:/app/.env ghcr.io/badsyntax/richardwillis.info-strapi:latest
+docker push ghcr.io/badsyntax/richardwillis.info-strapi:latest
 ```
 
 Or:
 
 ```bash
 docker buildx create --use
-docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/badsyntax/richardwillis-strapi:latest --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/badsyntax/richardwillis.info-strapi:latest --push .
 ```
 
 ## Production
