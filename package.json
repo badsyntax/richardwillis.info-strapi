@@ -24,7 +24,7 @@
     "strapi-plugin-graphql": "3.6.5",
     "strapi-plugin-i18n": "3.6.5",
     "strapi-plugin-upload": "3.6.5",
-    "strapi-plugin-users-permissions": "3.6.5",
+    "strapi-plugin-users-permissions": "3.6.7",
     "strapi-utils": "3.6.5"
   },
   "author": {
