@@ -15,9 +15,7 @@ RUN npm ci
 COPY . .
 
 RUN NODE_ENV=production npm run build
-RUN ls -l
 # RUN npm prune --production
-
 
 FROM base
 
