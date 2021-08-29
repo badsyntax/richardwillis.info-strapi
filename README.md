@@ -9,12 +9,18 @@ Set the following env vars within `.env`:
 
 ```bash
 HOST=0.0.0.0
-export DATABASE_HOST=1.1.1.1
-export DATABASE_PORT=5432
-export DATABASE_NAME=strapi
-export DATABASE_USERNAME=strapi
-export DATABASE_PASSWORD=password
-export ADMIN_JWT_SECRET=somerandomstring
+ADMIN_JWT_SECRET=somerandomstring
+
+DATABASE_HOST=1.1.1.1
+DATABASE_PORT=5432
+DATABASE_NAME=strapi
+DATABASE_USERNAME=strapi
+DATABASE_PASSWORD=password
+
+AWS_ACCESS_KEY_ID=
+AWS_ACCESS_SECRET=
+AWS_REGION=
+AWS_BUCKET=
 ```
 
 ```bash
