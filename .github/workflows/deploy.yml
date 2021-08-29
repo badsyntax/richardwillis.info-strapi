@@ -1,4 +1,7 @@
 name: Deploy
+concurrency:
+  group: prod_deploy
+  cancel-in-progress: false
 on:
   # Trigger the workflow on push to master
   push:
@@ -53,7 +56,7 @@ jobs:
         run: |
           curl --fail -X POST "$DEPLOY_ENDPOINT" || exit 1
         env:
-          DEPLOY_ENDPOINT: "${{ secrets.DEPLOY_ENDPOINT }}"
+          DEPLOY_ENDPOINT: '${{ secrets.DEPLOY_ENDPOINT }}'
       # - name: Save deploy start time
       #   id: deploy_start
       #   run: |
