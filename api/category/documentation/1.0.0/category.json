@@ -532,7 +532,8 @@
                 "description",
                 "content",
                 "slug",
-                "image"
+                "image",
+                "publish_date"
               ],
               "properties": {
                 "id": {
@@ -560,6 +561,9 @@
                   "type": "string"
                 },
                 "excerpt": {
+                  "type": "string"
+                },
+                "publish_date": {
                   "type": "string"
                 },
                 "published_at": {

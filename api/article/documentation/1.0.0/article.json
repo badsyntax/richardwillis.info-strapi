@@ -513,7 +513,8 @@
           "description",
           "content",
           "slug",
-          "image"
+          "image",
+          "publish_date"
         ],
         "properties": {
           "id": {
@@ -663,6 +664,10 @@
           "excerpt": {
             "type": "string"
           },
+          "publish_date": {
+            "type": "string",
+            "format": "date"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -674,7 +679,8 @@
           "title",
           "description",
           "content",
-          "slug"
+          "slug",
+          "publish_date"
         ],
         "properties": {
           "title": {
@@ -698,6 +704,10 @@
           },
           "excerpt": {
             "type": "string"
+          },
+          "publish_date": {
+            "type": "string",
+            "format": "date"
           },
           "published_at": {
             "type": "string",

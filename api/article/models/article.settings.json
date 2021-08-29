@@ -51,6 +51,10 @@
     },
     "excerpt": {
       "type": "text"
+    },
+    "publish_date": {
+      "type": "date",
+      "required": true
     }
   }
 }
