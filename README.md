@@ -1,7 +1,7 @@
 # Strapi Richard Willis
 
 [![Analyze](https://github.com/badsyntax/richardwillis.info-strapi/actions/workflows/analyze.yml/badge.svg)](https://github.com/badsyntax/richardwillis.info-strapi/actions/workflows/analyze.yml)
-[![Deploy](https://github.com/badsyntax/richardwillis.info-strapi/actions/workflows/prod-deploy.yml/badge.svg)](https://github.com/badsyntax/richardwillis.info-strapi/actions/workflows/prod-deploy.yml)
+[![Deploy](https://github.com/badsyntax/richardwillis.info-strapi/actions/workflows/deploy.yml/badge.svg)](https://github.com/badsyntax/richardwillis.info-strapi/actions/workflows/deploy.yml)
 
 ## Getting Started
 
