@@ -9,5 +9,12 @@ module.exports = ({ env }) => ({
         Bucket: env('AWS_BUCKET') + '/strapi-media',
       },
     },
+    breakpoints: {
+      1280: 1280,
+      1024: 1024,
+      768: 768,
+      640: 640,
+      420: 420,
+    },
   },
 });
