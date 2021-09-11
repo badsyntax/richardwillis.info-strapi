@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/writers": {
+    "/comments": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Writer"
+                    "$ref": "#/components/schemas/Comment"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Writer"
+          "Comment"
         ],
         "parameters": [
           {
@@ -191,7 +191,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Writer"
+                  "$ref": "#/components/schemas/Comment"
                 }
               }
             }
@@ -229,7 +229,7 @@
         },
         "summary": "",
         "tags": [
-          "Writer"
+          "Comment"
         ],
         "requestBody": {
           "description": "",
@@ -237,14 +237,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewWriter"
+                "$ref": "#/components/schemas/NewComment"
               }
             }
           }
         }
       }
     },
-    "/writers/count": {
+    "/comments/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -296,12 +296,12 @@
         },
         "summary": "",
         "tags": [
-          "Writer"
+          "Comment"
         ],
         "parameters": []
       }
     },
-    "/writers/{id}": {
+    "/comments/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -311,7 +311,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Writer"
+                  "$ref": "#/components/schemas/Comment"
                 }
               }
             }
@@ -349,7 +349,7 @@
         },
         "summary": "",
         "tags": [
-          "Writer"
+          "Comment"
         ],
         "parameters": [
           {
@@ -373,7 +373,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Writer"
+                  "$ref": "#/components/schemas/Comment"
                 }
               }
             }
@@ -411,7 +411,7 @@
         },
         "summary": "",
         "tags": [
-          "Writer"
+          "Comment"
         ],
         "requestBody": {
           "description": "",
@@ -419,7 +419,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewWriter"
+                "$ref": "#/components/schemas/NewComment"
               }
             }
           }
@@ -485,7 +485,7 @@
         },
         "summary": "",
         "tags": [
-          "Writer"
+          "Comment"
         ],
         "parameters": [
           {
@@ -500,11 +500,82 @@
           }
         ]
       }
+    },
+    "/comments-public": {
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Comment"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "Writer": {
+      "Comment": {
         "required": [
           "id"
         ],
@@ -512,66 +583,60 @@
           "id": {
             "type": "string"
           },
-          "name": {
+          "author": {
             "type": "string"
           },
-          "picture": {
+          "body": {
+            "type": "string"
+          },
+          "article": {
             "required": [
               "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
+              "title",
+              "description",
+              "content",
+              "slug",
+              "image",
+              "publish_date"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
+              "title": {
                 "type": "string"
               },
-              "alternativeText": {
+              "description": {
                 "type": "string"
               },
-              "caption": {
+              "content": {
                 "type": "string"
               },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
+              "slug": {
                 "type": "string"
               },
-              "ext": {
+              "category": {
                 "type": "string"
               },
-              "mime": {
+              "image": {
                 "type": "string"
               },
-              "size": {
-                "type": "number"
-              },
-              "url": {
+              "author": {
                 "type": "string"
               },
-              "previewUrl": {
+              "excerpt": {
                 "type": "string"
               },
-              "provider": {
+              "publish_date": {
                 "type": "string"
               },
-              "provider_metadata": {
-                "type": "object"
+              "comments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
-              "related": {
+              "published_at": {
                 "type": "string"
               },
               "created_by": {
@@ -582,85 +647,26 @@
               }
             }
           },
-          "articles": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "title",
-                "description",
-                "content",
-                "slug",
-                "image",
-                "publish_date"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "content": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "image": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "string"
-                },
-                "excerpt": {
-                  "type": "string"
-                },
-                "publish_date": {
-                  "type": "string"
-                },
-                "comments": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "email": {
-            "type": "string"
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
-      "NewWriter": {
+      "NewComment": {
         "properties": {
-          "name": {
+          "author": {
             "type": "string"
           },
-          "articles": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "email": {
+          "body": {
             "type": "string"
+          },
+          "article": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           },
           "created_by": {
             "type": "string"
@@ -674,7 +680,7 @@
   },
   "tags": [
     {
-      "name": "Writer"
+      "name": "Comment"
     }
   ]
 }
