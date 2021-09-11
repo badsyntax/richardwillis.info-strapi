@@ -1,0 +1,22 @@
+{
+  "paths": {
+    "/aboutpage": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the aboutpage's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve aboutpage document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aboutpage"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
