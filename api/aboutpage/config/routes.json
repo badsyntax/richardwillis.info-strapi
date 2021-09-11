@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/aboutpage",
+      "handler": "aboutpage.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/aboutpage",
+      "handler": "aboutpage.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/aboutpage",
+      "handler": "aboutpage.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
