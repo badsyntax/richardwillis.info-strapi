@@ -6,15 +6,22 @@ const getMetadatas = (buffer) =>
     .metadata()
     .catch(() => ({})); // ignore errors
 
-const formatsToProccess = ['jpeg', 'png'];
+const imageFormats = ['jpeg', 'png', 'webp'];
+const imageFormatsWithoutWebP = imageFormats.filter(
+  (format) => format !== 'webp'
+);
 
-const canBeProcessed = async (buffer) => {
+async function isImageFile(buffer, formats = imageFormats) {
   const { format } = await getMetadatas(buffer);
-  return format && formatsToProccess.includes(format);
-};
+  return format && formats.includes(format);
+}
 
-exports.generateWebPFile = async (file) => {
-  if (!(await canBeProcessed(file.buffer))) {
+async function shouldProcessWebP(buffer) {
+  return isImageFile(buffer, imageFormatsWithoutWebP);
+}
+
+async function generateWebPFile(file) {
+  if (!(await shouldProcessWebP(file.buffer))) {
     return null;
   }
   const webPBuffer = await sharp(file.buffer)
@@ -40,4 +47,9 @@ exports.generateWebPFile = async (file) => {
   }
 
   return null;
+}
+
+module.exports = {
+  isImageFile,
+  generateWebPFile,
 };
