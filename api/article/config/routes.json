@@ -33,6 +33,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/articles/:id/comment",
+      "handler": "article.comment",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/articles/:id",
       "handler": "article.update",

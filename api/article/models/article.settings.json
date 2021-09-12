@@ -55,6 +55,10 @@
     "publish_date": {
       "type": "date",
       "required": true
+    },
+    "comments": {
+      "via": "article",
+      "collection": "comment"
     }
   }
 }
