@@ -24,7 +24,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewComment"
+                "$ref": "#/components/schemas/NewArticleComment"
               }
             }
           }
@@ -46,7 +46,7 @@
   },
   "components": {
     "schemas": {
-      "NewComment": {
+      "NewArticleComment": {
         "properties": {
           "author": {
             "type": "string"
