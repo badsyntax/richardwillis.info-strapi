@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/12/2021 8:26:53 AM"
+    "x-generation-date": "09/13/2021 5:44:16 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3892,32 +3892,7 @@
           "comments": {
             "type": "array",
             "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "string"
-                },
-                "body": {
-                  "type": "string"
-                },
-                "article": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/components/schemas/Comment"
             }
           },
           "published_at": {
@@ -4111,64 +4086,13 @@
             "type": "string"
           },
           "article": {
-            "required": [
-              "id",
-              "title",
-              "description",
-              "content",
-              "slug",
-              "image",
-              "publish_date"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "content": {
-                "type": "string"
-              },
-              "slug": {
-                "type": "string"
-              },
-              "category": {
-                "type": "string"
-              },
-              "image": {
-                "type": "string"
-              },
-              "author": {
-                "type": "string"
-              },
-              "excerpt": {
-                "type": "string"
-              },
-              "publish_date": {
-                "type": "string"
-              },
-              "comments": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
+            "type": "string"
           },
           "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_at": {
             "type": "string",
             "format": "date-time"
           }
