@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "knex": "0.95.10",
-    "mime-types": "^2.1.32",
+    "mime-types": "^2.1.33",
     "pg": "8.7.1",
     "strapi": "3.6.7",
     "strapi-admin": "3.6.8",
