@@ -1,0 +1,22 @@
+{
+  "paths": {
+    "/contactpage": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the contactpage's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve contactpage document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contactpage"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
