@@ -1,0 +1,22 @@
+{
+  "paths": {
+    "/projectspage": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the projectspage's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve projectspage document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Projectspage"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
