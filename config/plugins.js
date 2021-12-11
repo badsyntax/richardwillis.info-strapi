@@ -6,7 +6,7 @@ module.exports = ({ env }) => ({
       secretAccessKey: env('AWS_ACCESS_SECRET'),
       region: env('AWS_REGION'),
       params: {
-        Bucket: env('AWS_BUCKET') + '/strapi-media',
+        Bucket: env('AWS_BUCKET') + '/root/strapi-media',
       },
     },
     breakpoints: {
