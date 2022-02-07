@@ -17,7 +17,7 @@
   "dependencies": {
     "knex": "0.95.11",
     "mime-types": "^2.1.33",
-    "pg": "8.7.1",
+    "pg": "8.7.3",
     "strapi": "3.6.8",
     "strapi-admin": "3.6.8",
     "strapi-connector-bookshelf": "3.6.8",
